@@ -9,7 +9,7 @@ it('renders without crashing', () => {
   ReactDOM.unmountComponentAtNode(div);
 });
 
-it('renders counter component', () => {
+it('renders Hello World text', () => {
   const app = enzyme.shallow(<App/>);
   expect(app.render().text()).toBe('Hello World!')
 })
