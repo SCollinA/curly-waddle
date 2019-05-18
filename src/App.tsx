@@ -1,26 +1,51 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+interface Props {
+
+}
+
+interface State {
+  count: number;
+}
+
+class App extends React.Component<Props, State> {
+  constructor(props: Props) {
+    super(props)
+    this.state = {
+      count: 0,
+    }
+  }
+
+  incrementCount = () => this.updateCount(this.state.count + 1)
+  decrementCount = () => this.updateCount(this.state.count - 1)
+
+  updateCount = (count: number) => this.setState({
+    count
+  })
+
+  render() {
+    return (
+      <div className="App">
+        <h1>Hello World!</h1>
+        <h1>{this.state.count}</h1>
+        <div className='counterButtons'>
+          <h1 
+            style={{ display: 'inline', cursor: 'pointer' }}
+            onClick={this.incrementCount}
+          >
+            +
+          </h1>
+          <h1 
+            style={{ display: 'inline', cursor: 'pointer' }}
+            onClick={this.decrementCount}
+          >
+            -
+          </h1>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
