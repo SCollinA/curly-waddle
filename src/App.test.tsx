@@ -33,3 +33,9 @@ it('renders count from initial state in second h1 as 0', () => {
   const app = enzyme.shallow(<App/>);
   expect(app.childAt(1).render().text()).toBe('0');
 })
+
+it('renders counterButtons div as third child of app', () => {
+  const app = enzyme.shallow(<App/>);
+  expect(app.childAt(2).is('div')).toBe(true)
+  expect(app.childAt(2).hasClass('counterButtons')).toBe(true)
+})
