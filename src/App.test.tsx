@@ -18,3 +18,8 @@ it('renders Hello World in h1 element', () => {
   const app = enzyme.shallow(<App/>);
   expect(app.children().first().text()).toBe('Hello World!')
 })
+
+it('renders an h1 element as second component', () => {
+  const app = enzyme.shallow(<App/>);
+  expect(app.childAt(1).is('h1')).toBe(true)
+})
