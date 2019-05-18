@@ -28,3 +28,8 @@ it('contains state with count prop', () => {
   const app = enzyme.shallow(<App/>);
   expect(app.state()).toHaveProperty('count');
 })
+
+it('renders count from initial state in second h1 as 0', () => {
+  const app = enzyme.shallow(<App/>);
+  expect(app.childAt(1).render().text()).toBe('0');
+})

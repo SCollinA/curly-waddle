@@ -21,7 +21,7 @@ class App extends React.Component<Props, State> {
     return (
       <div className="App">
         <h1>Hello World!</h1>
-        <h1></h1>
+        <h1>{this.state.count}</h1>
       </div>
     );
   }
