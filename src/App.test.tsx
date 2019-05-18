@@ -75,3 +75,19 @@ it('renders counterButtons with pointer cursor', () => {
   expect(counterButtons.childAt(0).render().css('cursor')).toBe('pointer');
   expect(counterButtons.childAt(1).render().css('cursor')).toBe('pointer');
 })
+
+it('renders count in second h1 equal to this.state.count', () => {
+  const app = enzyme.shallow(<App/>);
+  const counterButtons = app.childAt(2);
+  const plusButton = counterButtons.childAt(0);
+  const minusButton = counterButtons.childAt(1);
+  for (let i = 0; i < Math.floor(Math.random() * 100); i++) {
+    plusButton.simulate('click');
+  }
+  for (let i = 0; i < Math.floor(Math.random() * 100); i++) {
+    minusButton.simulate('click');
+  }
+  const countH1 = app.childAt(1);
+  console.log('expected', app.state('count'), 'received', parseInt(countH1.render().text()))
+  expect(parseInt(countH1.render().text())).toEqual(app.state('count'));
+})
